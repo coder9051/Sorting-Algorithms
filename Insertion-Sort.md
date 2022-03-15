@@ -11,16 +11,36 @@ Insertion sort involves finding the right place for a given element in a sorted 
 
 ## Python Code
 ```python
-
+# Create a function
+def insertion_sort(array):
+    
+    # Star loop from index 1
+    for i in range(1, len(array)):
+        
+        # Next element
+        key = array[i]
+        
+        # Index of current element
+        j = i-1
+        
+        # Compare key with each element on the left of it until an element smaller than it is found
+        while j >= 0 and key < array[j]:
+            array[j+1] = array[j]
+            j -= 1
+       
+        # # Place key after the element just smaller than it.     
+        array[j+1] = key
+    
+array = [1, 9, 45, 23, 12, 82, 67]
+insertion_sort(array)
+print(array)
 ```
 
 ## Time Complexity
 
 **Worst Case Complexity**: O(n^2)
 
-Suppose, an array is in ascending order, and you want to sort it in descending order. In this case, worst case complexity occurs.
-
-Each element has to be compared with each of the other elements so, for every nth element, (n-1) number of comparisons are made.
+Suppose, an array is in ascending order, and you want to sort it in descending order. In this case, worst case complexity occurs.Each element has to be compared with each of the other elements so, for every nth element, (n-1) number of comparisons are made.
 
 Thus, the total number of comparisons = n*(n-1) ~ n2
 
