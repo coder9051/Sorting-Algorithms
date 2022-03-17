@@ -11,6 +11,7 @@ Here is list of sorting algorithms which I have added to this repository along w
 2. Insertion Sort
 3. Selection Sort
 4. Quick Sort
+5. Merge Sort
 
 ## Contribution
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
