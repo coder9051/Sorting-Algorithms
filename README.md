@@ -13,6 +13,8 @@ Here is list of sorting algorithms which I have added to this repository along w
 4. Quick Sort
 5. Merge Sort
 6. Heap sort
+7. Counting Sort
+8. Radix Sort
 
 ## Basis of classification
 Sorting algorithms can be categorized based on the following parameters:
