@@ -15,70 +15,52 @@ The Radix sort algorithm is performed using the following steps...
 
 ## Python Code
 ```python
-# Python program for implementation of Radix Sort
-# A function to do counting sort of arr[] according to
-# the digit represented by exp.
- 
-def countingSort(arr, exp1):
- 
-    n = len(arr)
- 
-    # The output array elements that will have sorted arr
-    output = [0] * (n)
- 
-    # initialize count array as 0
-    count = [0] * (10)
- 
-    # Store count of occurrences in count[]
-    for i in range(0, n):
-        index = arr[i] // exp1
-        count[index % 10] += 1
- 
-    # Change count[i] so that count[i] now contains actual
-    # position of this digit in output array
-    for i in range(1, 10):
-        count[i] += count[i - 1]
- 
-    # Build the output array
-    i = n - 1
-    while i >= 0:
-        index = arr[i] // exp1
-        output[count[index % 10] - 1] = arr[i]
-        count[index % 10] -= 1
-        i -= 1
- 
-    # Copying the output array to arr[],
-    # so that arr now contains sorted numbers
-    i = 0
-    for i in range(0, len(arr)):
-        arr[i] = output[i]
- 
-# Method to do Radix Sort
-def radixSort(arr):
- 
-    # Find the maximum number to know number of digits
-    max1 = max(arr)
- 
-    # Do counting sort for every digit. Note that instead
-    # of passing digit number, exp is passed. exp is 10^i
-    # where i is current digit number
-    exp = 1
-    while max1 / exp > 1:
-        countingSort(arr, exp)
-        exp *= 10
- 
- 
-# Driver code
-arr = [170, 45, 75, 90, 802, 24, 2, 66]
- 
-# Function Call
-radixSort(arr)
- 
-for i in range(len(arr)):
-    print(arr[i],end=" ")
- 
-# This code is contributed by Mohit Kumra
-# Edited by Patrick Gallagher
+# Create Function for Counting sort
+def counting_sort(array):
+
+  size = len(array)
+
+  # Create a list of size of array which will be the sorted list
+  sorted_array = [0]*size
+
+  # Create a count array of size of maximum of array to store count of individual numbers and initialize count array as 0
+  count = [0]*(max(array)+1)
+
+  # Store the count of each elements in count array
+  for i in range(size):
+    count[array[i]] += 1
+
+  # Store the cummulative count
+  # count[i] now contains the number of elements equal to i i.e. actual position of this character in output array
+  for i in range(1, len(count)):
+    count[i] += count[i-1]
+
+  # Find the index of each element of the original array in count array place the elements in output array
+  i = size - 1
+  while i >= 0:
+    sorted_array[count[array[i]] - 1] = array[i]
+    count[array[i]] -= 1
+    i -= 1
+  # Copy the sorted elements into original array
+  for i in range(size):
+    array[i] = sorted_array[i]
+
+# Main function to implement radix sort
+def radix_sort(array):
+
+  # Find the maximum number to know number of digits
+  max_number = max(array)
+  
+  # Do counting sort for every digit. Note that instead of passing digit number, place is passed. place is 10^i where i is current digit number
+  place = 1
+  while max_number // place > 0:
+    counting_sort(array, place)
+    place *= 10
+
+array = [18, 3, 41, 12, 9, 2, 56]
+counting_sort(array)
+print(array)
+
 ```
 
 ## Time Complexity
