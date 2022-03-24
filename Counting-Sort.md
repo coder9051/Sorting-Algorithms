@@ -45,7 +45,6 @@ def counting_sort(array):
   for i in range(size):
     array[i] = sorted_array[i]
 
-  print(array)
 array = [18, 3, 41, 12, 9, 2, 56]
 counting_sort(array)
 print(array)
