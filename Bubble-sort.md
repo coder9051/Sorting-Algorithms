@@ -45,6 +45,55 @@ bubble_sort(array)
 print(array)
 ```
 
+## C code
+```c
+// Bubble sort in C
+#include <stdio.h>
+
+// Create the bubble sort function
+void bubbleSort(int n, int array[])
+
+{
+
+    int i, j, temp;
+
+    // loop to access each array element
+    for (i = 0; i < n - 1; i++)
+    {
+        // loop to compare array elements
+        for (j = 0; j < n - i -1; j++)
+        {
+            // compare two adjacent elements 
+            // change > to < to sort in descending order
+            if (array[j] > array[j+1])
+            {
+                // swapping occurs if elements 
+                // are not in the intended order
+                temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+
+void printArray(int array[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+        printf("%d ",array[i]);
+}
+
+// drivers code
+int main()
+{
+    int a[] = {5, 3, 9, 2, 8};
+    int size = 5;
+    bubbleSort(size, a);
+    printArray(a, size);
+}
+```
+
 ## Time Complexity
 The time complexity of the bubble sort is O(n2)
 
